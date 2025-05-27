@@ -1,16 +1,7 @@
-import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.include
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    //TODO
-//    alias(libs.plugins.android.library) apply false
-//    alias(libs.plugins.safe.args) apply false
-//    alias(libs.plugins.licensee) apply false
-//    alias(libs.plugins.ksp) apply false
-    //
-//    kotlin("kapt")
 }
 
 android {
@@ -52,12 +43,6 @@ dependencies {
     implementation(projects.presentation)
     implementation(projects.domain)
     implementation(projects.data)
-
-//    // PL_JetpackCompose - PERMISSIONS
-//    implementation(libs.accompanist.permissions)
-//
-//    // PL_JetpackCompose NAVIGATION
-//    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

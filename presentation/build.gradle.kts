@@ -3,23 +3,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-//    alias(libs.plugins.kotlin.parcelize)
-//    alias(libs.plugins.safe.args)
-
-//    id("com.google.devtools.ksp") version "2.1.21-2.0.1" // For new Navigation
 }
-
-//kotlin {
-//    sourceSets {
-//        debug {
-//            kotlin.srcDir("build/generated/ksp/debug/kotlin")
-//        }
-//
-//        release {
-//            kotlin.srcDir("build/generated/ksp/release/kotlin")
-//        }
-//    }
-//}
 
 android {
     namespace = "com.sargis.khlopuzyan.presentation"
@@ -51,7 +35,6 @@ android {
 
     buildFeatures {
         compose = true
-//        viewBinding = true
     }
 }
 
@@ -76,10 +59,13 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
+    testImplementation(libs.google.truth.v11)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
