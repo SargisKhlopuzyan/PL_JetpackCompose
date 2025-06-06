@@ -58,6 +58,18 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    // Coil
+    implementation(libs.coil3.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    // Extended Icons
+//    implementation(libs.material.icons.extended)
+
+    // Injection Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation (libs.koin.androidx.workmanager)
+    implementation (libs.koin.androidx.compose.navigation)
+
     testImplementation(libs.junit)
     testImplementation(libs.google.truth.v11)
 
@@ -65,6 +77,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.google.truth.v11)
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)

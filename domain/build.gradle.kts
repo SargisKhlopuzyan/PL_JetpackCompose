@@ -37,6 +37,9 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
 
+    // Injection Koin
+    implementation(libs.koin.android)
+
     // Test libs
     androidTestImplementation(libs.androidx.junit)
     testImplementation(libs.junit)

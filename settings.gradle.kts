@@ -21,6 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "PL_JetpackCompose"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS") //TODO
+
 include(":app")
 include(":presentation")
 include(":domain")
