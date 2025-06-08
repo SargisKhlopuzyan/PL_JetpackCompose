@@ -1,12 +1,11 @@
 plugins {
-    alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.sargis.khlopuzyan.presentation"
+    namespace = "com.sargis.khlopuzyan.commonUi"
     compileSdk = 35
 
     defaultConfig {
@@ -32,24 +31,20 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
-    implementation(projects.domain)
-    implementation(projects.commonUi)
-
-    // PL_JetpackCompose - PERMISSIONS
-    implementation(libs.accompanist.permissions)
-
-    // PL_JetpackCompose NAVIGATION
-    implementation(libs.androidx.navigation.compose)
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+
+
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -57,30 +52,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-
-    // Coil
-    implementation(libs.coil3.coil.compose)
-    implementation(libs.coil.network.okhttp)
-    // Extended Icons
-//    implementation(libs.material.icons.extended)
-
-    // Injection Koin
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
-    implementation (libs.koin.androidx.workmanager)
-    implementation (libs.koin.androidx.compose.navigation)
+//    implementation(libs.androidx.appcompat)
+//    implementation(libs.material)
 
     testImplementation(libs.junit)
-    testImplementation(libs.google.truth.v11)
-
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation(libs.google.truth.v11)
-
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 }

@@ -12,13 +12,11 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,6 +31,8 @@ import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.size.Size
+import com.sargis.khlopuzyan.commonUi.CommonUiTheme
+import com.sargis.khlopuzyan.commonUi.component.button.CommonUiSecondaryButton
 import com.sargis.khlopuzyan.domain.entity.shoppingList.ShoppingListItem
 import com.sargis.khlopuzyan.presentation.R
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.ShoppingListScreens
@@ -49,19 +49,17 @@ fun ShoppingListScreen(
         initialFirstVisibleItemIndex = 0
     )
 
-    val scope = rememberCoroutineScope()
-
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         floatingActionButton = {
-            Button(
+            CommonUiSecondaryButton(
                 modifier = Modifier.wrapContentSize(),
+                text = "+",
+                attributes = CommonUiTheme.buttonStyle.large,
                 onClick = {
                     navController.navigate(ShoppingListScreens.ShoppingListAddScreen.route)
                 }
-            ) {
-                Text(text = "+")
-            }
+            )
         }
     ) { innerPadding ->
         Box(

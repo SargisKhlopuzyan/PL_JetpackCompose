@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
@@ -24,6 +23,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -36,9 +36,12 @@ import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.size.Size
+import com.sargis.khlopuzyan.commonUi.CommonUiTheme
+import com.sargis.khlopuzyan.commonUi.component.button.CommonUiPrimaryButton
 import com.sargis.khlopuzyan.presentation.R
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.ShoppingListScreens
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.imageSearch.RESULT_KEY_IMAGE_URL
+import com.sargis.khlopuzyan.presentation.util.conditional
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -76,6 +79,15 @@ fun ShoppingListAddScreen(
                 AsyncImage(
                     modifier = Modifier
                         .size(64.dp)
+                        .conditional(
+                            condition = uiState.imgUrl.isEmpty(),
+                            ifTrue = {
+                                paint(
+                                    painterResource(id = R.drawable.ic_launcher_foreground),
+                                    contentScale = ContentScale.Crop
+                                )
+                            },
+                        )
                         .clickable(onClick = {
                             navController.navigate(ShoppingListScreens.ShoppingListImageSearchScreen.route)
                         }),
@@ -84,7 +96,7 @@ fun ShoppingListAddScreen(
                         .data(uiState.imgUrl)
                         .size(Size.ORIGINAL)
                         .build(),
-                    placeholder = painterResource(R.drawable.ic_launcher_background),
+                    placeholder = painterResource(R.drawable.ic_launcher_foreground),
                     contentDescription = null,
                 )
 
@@ -186,12 +198,13 @@ fun ShoppingListAddScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.End
             ) {
-                Button(onClick = {
-                    viewModel.onEvent(ShoppingListAddUIEvent.Add)
-                    navController.popBackStack()
-                }) {
-                    Text("Add")
-                }
+                CommonUiPrimaryButton(
+                    text = "Add",
+                    attributes = CommonUiTheme.buttonStyle.medium,
+                    onClick = {
+                        viewModel.onEvent(ShoppingListAddUIEvent.Add)
+                        navController.popBackStack()
+                    })
             }
         }
     }

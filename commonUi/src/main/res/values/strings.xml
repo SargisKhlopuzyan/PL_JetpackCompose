@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Compact UI</string>
+    <string name="ic_arrow_up_desc">Scroll up</string>
+    <string name="ic_arrow_down_desc">Scroll down</string>
+    <string name="ic_arrow_left_desc">Scroll left</string>
+    <string name="ic_arrow_right_desc">Scroll right</string>
+    <string name="loading">Loading screen...</string>
+    <string name="switched_on_icon_toggle_content_descr">Switched on</string>
+    <string name="switched_off_icon_toggle_content_descr">Switched off</string>
+    <string name="button_resource_runtime_error">Either iconResId or imageVector must be provided</string>
+</resources>

@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="PL_JetpackCompose.app.data" target="21" />
+      <module name="PL_JetpackCompose.common" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>
