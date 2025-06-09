@@ -9,7 +9,7 @@ abstract class BaseViewModel<T : UiState, in E : UiEvent> : ViewModel() {
 
     protected abstract val _uiState: MutableStateFlow<T>
 
-    val uiState: StateFlow<T>
+    open val uiState: StateFlow<T>
         get() = _uiState
 
     protected fun updateUiState(newState: (T) -> T) {

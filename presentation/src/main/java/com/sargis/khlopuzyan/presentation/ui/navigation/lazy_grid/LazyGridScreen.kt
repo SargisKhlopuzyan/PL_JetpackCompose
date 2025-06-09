@@ -1,6 +1,7 @@
 package com.sargis.khlopuzyan.presentation.ui.navigation.lazy_grid
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
@@ -25,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.sargis.khlopuzyan.presentation.ui.navigation.main.MainScreen
@@ -40,7 +42,11 @@ fun LazyGridScreen(navController: NavController) {
     val scope = rememberCoroutineScope()
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Column(modifier = Modifier.padding(innerPadding)) {
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .padding(16.dp)
+        ) {
             Button(
                 onClick = {
                     scope.launch {
@@ -54,6 +60,8 @@ fun LazyGridScreen(navController: NavController) {
             LazyVerticalGrid(
                 modifier = Modifier.fillMaxHeight(),
                 columns = GridCells.Fixed(3),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
                 state = state,
 //        columns = GridCells.Adaptive(100.dp),
                 content = {
@@ -78,16 +86,7 @@ fun LazyGridScreen(navController: NavController) {
                         })
                     }
                     items(100) { i ->
-                        Box(
-                            modifier = Modifier
-                                .padding(8.dp)
-                                .aspectRatio(1f)
-                                .clip(RoundedCornerShape(5.dp))
-                                .background(Color.Green),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(text = "Item $i")
-                        }
+                        LazyGridItem("TODO - $i", {})
                     }
                 }
             )
@@ -99,10 +98,9 @@ fun LazyGridScreen(navController: NavController) {
 fun LazyGridItem(text: String, action: () -> Unit) {
     Box(
         modifier = Modifier
-            .padding(8.dp)
             .aspectRatio(1f)
             .clip(RoundedCornerShape(5.dp))
-            .background(Color.Green),
+            .background(Color.LightGray),
         contentAlignment = Alignment.Center
     ) {
         Button(
@@ -122,6 +120,7 @@ fun LazyGridItem(text: String, action: () -> Unit) {
                     .background(Color.Transparent),
                 textAlign = TextAlign.Center,
                 color = Color.Black,
+                fontSize = 13.sp,
                 text = text
             )
         }

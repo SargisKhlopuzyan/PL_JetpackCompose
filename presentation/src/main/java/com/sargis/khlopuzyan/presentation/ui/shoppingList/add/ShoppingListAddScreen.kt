@@ -6,20 +6,22 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContent
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,10 +29,12 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
@@ -40,16 +44,18 @@ import com.sargis.khlopuzyan.commonUi.CommonUiTheme
 import com.sargis.khlopuzyan.commonUi.component.button.CommonUiPrimaryButton
 import com.sargis.khlopuzyan.presentation.R
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.ShoppingListScreens
+import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.imageSearch.RESULT_KEY_IMAGE_URL
 import com.sargis.khlopuzyan.presentation.util.conditional
 import org.koin.androidx.compose.koinViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShoppingListAddScreen(
     navController: NavController,
     viewModel: ShoppingListAddViewModel = koinViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val imageUrl =
         navController.currentBackStackEntry?.savedStateHandle?.get<String>(RESULT_KEY_IMAGE_URL)
@@ -60,8 +66,14 @@ fun ShoppingListAddScreen(
     }
 
     Scaffold(
-        modifier = Modifier.Companion
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+//        contentWindowInsets = WindowInsets.safeDrawing,
+        contentWindowInsets = WindowInsets.safeContent,
+        topBar = {
+            CommonTopAppBar("Add shopping list item") {
+                navController.popBackStack()
+            }
+        }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -213,5 +225,7 @@ fun ShoppingListAddScreen(
 @Preview
 @Composable
 fun ShoppingListAddScreenPreview() {
-    ShoppingListAddScreen(rememberNavController())
+    if (!LocalInspectionMode.current) {
+        ShoppingListAddScreen(rememberNavController())
+    }
 }
