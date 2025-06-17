@@ -16,7 +16,7 @@ fun main() {
 /**
  * If the primary constructor does not have any annotations or visibility modifiers, the constructor keyword can be omitted
  * */
-open class CustomClass /*private*/ constructor(protected val age: Int) {
+private open class CustomClass /*private*/ constructor(protected val age: Int) {
     val x = 10
     val y = yy
     companion object CUSTOM_COMPANION_OBJECT {
@@ -26,7 +26,7 @@ open class CustomClass /*private*/ constructor(protected val age: Int) {
     }
 }
 
-class InitOrderDemo(name: String) {
+private class InitOrderDemo(name: String) {
     val firstProperty = "First property: $name".also(::println)
 
     init {
