@@ -17,7 +17,9 @@ fun main() {
  * Objects cant have constructors
  * */
 object ObjectClass/*(val x: Int)*/ {
+
     val number: Int = 10
+
     fun function1() {
         println("function1")
     }
