@@ -8,7 +8,7 @@ In other words, the collection types have the same subtyping relationship as the
 Maps are covariant on the value type, but not on the key type.
  */
 
-fun main() {
+private fun main() {
 
     mutableListOf<String>("", "")
     val rectangles: List<Rectangle> = listOf<Rectangle>(Rectangle(), Rectangle())

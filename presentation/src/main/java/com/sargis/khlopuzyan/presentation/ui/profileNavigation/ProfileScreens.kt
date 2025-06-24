@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.profile_navigation
+package com.sargis.khlopuzyan.presentation.ui.profileNavigation
 
 sealed class ProfileScreens(val route: String) {
     object ProfileScreen : ProfileScreens("profile_screen")

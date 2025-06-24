@@ -2,7 +2,7 @@ package com.sargis.khlopuzyan.kotlinlang
 
 // "::"
 
-fun main() {
+private fun main() {
     functionReference2()
     Example().printFunctionType()
 //    Example.printFunctionType() // Compiler error

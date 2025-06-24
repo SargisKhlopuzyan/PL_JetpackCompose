@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.bottomNavigation
+package com.sargis.khlopuzyan.presentation.ui.bottomNavigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

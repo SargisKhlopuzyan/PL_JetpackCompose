@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlin.system.*
 
-fun main() {
+private fun main() {
     runBlocking {
         val time = measureTimeMillis {
             simple().collectLatest { value ->

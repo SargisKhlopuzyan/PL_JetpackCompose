@@ -21,7 +21,7 @@ import kotlinx.coroutines.runBlocking
 //    }
 //}
 
-fun main() {
+private fun main() {
     runBlocking(CoroutineName("RUN_BLOCKING")) {
         println("runBlocking->scope: $this")
         println("runBlocking->coroutineContext: ${this.coroutineContext}")

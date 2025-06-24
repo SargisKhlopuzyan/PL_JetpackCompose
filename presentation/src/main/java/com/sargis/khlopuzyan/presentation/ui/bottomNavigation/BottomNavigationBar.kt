@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.bottomNavigation
+package com.sargis.khlopuzyan.presentation.ui.bottomNavigation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons

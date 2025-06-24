@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.classAndObjects
 
-fun main() {
+private fun main() {
     val functionalInterface = object : FunctionalInterface {
         override fun onClick() {
             println("functionalInterface -> onClick")

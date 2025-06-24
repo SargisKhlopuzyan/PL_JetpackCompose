@@ -29,7 +29,6 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,15 +52,49 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ShoppingListAddScreen(
     navController: NavController,
-    viewModel: ShoppingListAddViewModel = koinViewModel()
+    viewModel: ShoppingListAddViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    ShoppingListAddScreen(
+        navController,
+        uiState,
+        updateImageUrl = { imageUrl ->
+            viewModel.onEvent(ShoppingListAddUIEvent.UpdateImageUrl(imageUrl))
+        },
+        onNameValueChange = { newTextFieldValue ->
+            viewModel.onEvent(ShoppingListAddUIEvent.UpdateName(newTextFieldValue))
+        },
+        onAmountValueChange = { newTextFieldValue ->
+            viewModel.onEvent(ShoppingListAddUIEvent.UpdateAmount(newTextFieldValue))
+        },
+        onPricePerItemValueChange = { newTextFieldValue ->
+            viewModel.onEvent(
+                ShoppingListAddUIEvent.UpdatePricePerItem(newTextFieldValue)
+            )
+        },
+        onAddClick = {
+            viewModel.onEvent(ShoppingListAddUIEvent.Add)
+            navController.popBackStack()
+        }
+    )
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ShoppingListAddScreen(
+    navController: NavController,
+    uiState: ShoppingListAddState,
+    updateImageUrl: (String) -> Unit,
+    onNameValueChange: (String) -> Unit,
+    onAmountValueChange: (String) -> Unit,
+    onPricePerItemValueChange: (String) -> Unit,
+    onAddClick: () -> Unit,
+) {
     val imageUrl =
         navController.currentBackStackEntry?.savedStateHandle?.get<String>(RESULT_KEY_IMAGE_URL)
 
     if (imageUrl != null) {
-        viewModel.onEvent(ShoppingListAddUIEvent.UpdateImageUrl(imageUrl))
+        updateImageUrl(imageUrl)
         navController.currentBackStackEntry?.savedStateHandle?.remove<String>(RESULT_KEY_IMAGE_URL)
     }
 
@@ -134,7 +167,7 @@ fun ShoppingListAddScreen(
                         Text("Name")
                     },
                     onValueChange = { newTextFieldValue ->
-                        viewModel.onEvent(ShoppingListAddUIEvent.UpdateName(newTextFieldValue))
+                        onNameValueChange(newTextFieldValue)
                     }
                 )
             }
@@ -167,7 +200,7 @@ fun ShoppingListAddScreen(
                         Text("Amount")
                     },
                     onValueChange = { newTextFieldValue ->
-                        viewModel.onEvent(ShoppingListAddUIEvent.UpdateAmount(newTextFieldValue))
+                        onAmountValueChange(newTextFieldValue)
                     }
                 )
                 Spacer(modifier = Modifier.width(15.dp))
@@ -194,11 +227,7 @@ fun ShoppingListAddScreen(
                         keyboardType = KeyboardType.Decimal
                     ),
                     onValueChange = { newTextFieldValue ->
-                        viewModel.onEvent(
-                            ShoppingListAddUIEvent.UpdatePricePerItem(
-                                newTextFieldValue
-                            )
-                        )
+                        onPricePerItemValueChange(newTextFieldValue)
                     }
                 )
             }
@@ -214,8 +243,7 @@ fun ShoppingListAddScreen(
                     text = "Add",
                     attributes = CommonUiTheme.buttonStyle.medium,
                     onClick = {
-                        viewModel.onEvent(ShoppingListAddUIEvent.Add)
-                        navController.popBackStack()
+                        onAddClick()
                     })
             }
         }
@@ -225,7 +253,6 @@ fun ShoppingListAddScreen(
 @Preview
 @Composable
 fun ShoppingListAddScreenPreview() {
-    if (!LocalInspectionMode.current) {
-        ShoppingListAddScreen(rememberNavController())
-    }
+    val uiState = ShoppingListAddState()
+    ShoppingListAddScreen(rememberNavController(), uiState, {}, {}, {}, {}, {})
 }

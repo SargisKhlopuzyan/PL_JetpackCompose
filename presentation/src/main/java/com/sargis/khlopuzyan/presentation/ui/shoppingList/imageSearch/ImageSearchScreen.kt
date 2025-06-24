@@ -58,13 +58,24 @@ import com.sargis.khlopuzyan.presentation.R
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import org.koin.androidx.compose.koinViewModel
 
+@Composable
+fun ImageSearchScreen(
+    navController: NavController,
+    viewModel: ImageSearchViewModel = koinViewModel(),
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    ImageSearchScreen(navController, uiState) { searchQuery ->
+        viewModel.onEvent(ImageSearchUIEvent.Search(searchQuery))
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageSearchScreen(
     navController: NavController,
-    viewModel: ImageSearchViewModel = koinViewModel()
+    uiState: ImageSearchState,
+    keyboardDoneActionsCallback: (searchQuery: String) -> Unit,
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     val lazyGridState = rememberLazyGridState(
         initialFirstVisibleItemIndex = 0
@@ -119,7 +130,7 @@ fun ImageSearchScreen(
                     ),
                     keyboardActions = KeyboardActions(
                         onDone = {
-                            viewModel.onEvent(ImageSearchUIEvent.Search(searchQuery))
+                            keyboardDoneActionsCallback(searchQuery)
                         }
                     ),
                     leadingIcon = null,
@@ -205,5 +216,8 @@ fun IconButton(imageVector: ImageVector, onClick: () -> Unit) {
 @Preview
 @Composable
 fun ImageSearchScreenPreview() {
-    ImageSearchScreen(rememberNavController())
+    val uiState = ImageSearchState()
+    ImageSearchScreen(rememberNavController(), uiState ) {
+
+    }
 }

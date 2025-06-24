@@ -5,7 +5,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+private fun main() {
     runBlocking {
         val channel = Channel<Int>(4) // create buffered channel
         val sender = launch { // launch sender coroutine

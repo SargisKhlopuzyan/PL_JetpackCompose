@@ -87,7 +87,7 @@ private suspend fun funAsync() = coroutineScope {
 //    }
 //}
 
-fun main() {
+private fun main() {
     runBlocking {
 //        val channel = Channel<Int>()
 //

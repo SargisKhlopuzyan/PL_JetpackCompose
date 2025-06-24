@@ -9,7 +9,7 @@ import com.sargis.khlopuzyan.presentation.base.runOnBackground
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class ImageSearchViewModel(
-    private val searchImagesUseCase: SearchImagesUseCase
+    val searchImagesUseCase: SearchImagesUseCase
 ) : BaseViewModel<ImageSearchState, ImageSearchUIEvent>() {
 
 //    override val _uiState: MutableStateFlow<ImageSearchState>

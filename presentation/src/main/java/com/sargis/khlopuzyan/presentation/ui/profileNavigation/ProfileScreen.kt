@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.profile_navigation
+package com.sargis.khlopuzyan.presentation.ui.profileNavigation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

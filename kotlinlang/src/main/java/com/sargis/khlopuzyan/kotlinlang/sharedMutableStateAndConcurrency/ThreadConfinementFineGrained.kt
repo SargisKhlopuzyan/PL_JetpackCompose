@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 private val counterContext = newSingleThreadContext("CounterContext")
 private var counter = 0
 
-fun main() {
+private fun main() {
     runBlocking {
         withContext(Dispatchers.Default) {
             massiveRun {

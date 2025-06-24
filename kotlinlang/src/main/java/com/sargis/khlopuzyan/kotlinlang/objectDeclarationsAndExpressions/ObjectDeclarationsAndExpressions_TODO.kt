@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.objectDeclarationsAndExpressions
 
-fun main() {
+private fun main() {
     val objectClass = ObjectClass
     val dataObjectClass = DataObjectClass
 

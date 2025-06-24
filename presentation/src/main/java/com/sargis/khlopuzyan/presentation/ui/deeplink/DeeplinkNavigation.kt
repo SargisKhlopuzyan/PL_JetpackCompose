@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.deeplink
+package com.sargis.khlopuzyan.presentation.ui.deeplink
 
 import android.content.Intent
 import androidx.compose.runtime.Composable

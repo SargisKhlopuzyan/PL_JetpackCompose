@@ -17,7 +17,7 @@ fun numbers(): Flow<Int> = flow {
     }
 }
 
-fun main() {
+private fun main() {
     runBlocking {
         val numbers = numbers()
         launch {

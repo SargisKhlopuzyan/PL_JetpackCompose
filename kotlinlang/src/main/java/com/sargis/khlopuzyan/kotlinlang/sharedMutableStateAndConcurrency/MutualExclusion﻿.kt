@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 private val mutex = Mutex()
 private var counter = 0
 
-fun main() {
+private fun main() {
     runBlocking {
         withContext(Dispatchers.Default) {
             massiveRun {

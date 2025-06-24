@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.deeplink
+package com.sargis.khlopuzyan.presentation.ui.deeplink
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

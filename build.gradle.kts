@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.kotlinter) apply false
 
+    // This is for passing data between destinations by navigation Component
 //    alias(libs.plugins.safe.args) apply false
+
 //    alias(libs.plugins.licensee) apply false
 }

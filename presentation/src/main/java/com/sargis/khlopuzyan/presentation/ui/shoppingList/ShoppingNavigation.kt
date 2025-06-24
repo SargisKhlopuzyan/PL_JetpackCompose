@@ -1,32 +1,44 @@
 package com.sargis.khlopuzyan.presentation.ui.shoppingList
 
-import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import androidx.navigation.navigation
+import com.sargis.khlopuzyan.presentation.ui.navigation.MainScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.add.ShoppingListAddScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.detail.ShoppingListDetailScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.home.ShoppingListScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.imageSearch.ImageSearchScreen
 
-@Composable
-fun ShoppingNavigation() {
-    val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = ShoppingListScreens.ShoppingListScreen.route
+fun NavGraphBuilder.shoppingListGraph(navController: NavController) {
+    navigation(
+        startDestination = ShoppingListScreens.ShoppingListScreen.route,
+        route = MainScreen.ShoppingScreen.route
     ) {
         composable(route = ShoppingListScreens.ShoppingListScreen.route) {
             ShoppingListScreen(navController)
         }
-        composable(route = ShoppingListScreens.ShoppingListAddScreen.route) {
+        composable(
+            route = ShoppingListScreens.ShoppingListAddScreen.route,
+        ) {
             ShoppingListAddScreen(navController)
         }
-        composable(route = ShoppingListScreens.ShoppingListDetailScreen.route) {
-            ShoppingListDetailScreen()
+        composable(
+            route = ShoppingListScreens.ShoppingListDetailScreen.route + "/{shoppingListItemId}",
+            arguments = listOf(navArgument("shoppingListItemId") {
+                type = NavType.StringType
+                defaultValue = ""
+                nullable = false
+            })
+        ) { backStackEntry ->
+            val shoppingListItemId =
+                backStackEntry.arguments?.getString("shoppingListItemId")?.toLong()
+            ShoppingListDetailScreen(navController, shoppingListItemId!!)
         }
         composable(route = ShoppingListScreens.ShoppingListImageSearchScreen.route) {
-            ImageSearchScreen(navController = navController)
+            ImageSearchScreen(navController)
         }
     }
 }

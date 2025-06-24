@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.profile_navigation
+package com.sargis.khlopuzyan.presentation.ui.profileNavigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,8 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun ProfileDetailScreen(name: String?) {

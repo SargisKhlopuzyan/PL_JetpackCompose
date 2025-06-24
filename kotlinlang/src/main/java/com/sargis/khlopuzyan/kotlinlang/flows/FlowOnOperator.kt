@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
  * that is running in another thread concurrently with the collecting coroutine.
  * The flowOn operator creates another coroutine for an upstream flow when it has to change the CoroutineDispatcher in its context.
  * */
-fun main() {
+private fun main() {
     runBlocking {
 //        // Exception in thread "main" java.lang.IllegalStateException: Flow invariant is violated:
 //        simple_returns_IllegalStateException().collect {

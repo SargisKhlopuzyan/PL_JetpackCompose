@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import kotlin.math.abs
 import kotlin.math.cos
 
-fun main() {
+private fun main() {
     val jsonString = """{"id":1,"name":"Bob","email":"bob@example.com"}"""
     jsonString.toKotlinObject(MyJsonType::class.java)
     jsonString.toKotlinObject_ReifiedAndInline<MyJsonType>()

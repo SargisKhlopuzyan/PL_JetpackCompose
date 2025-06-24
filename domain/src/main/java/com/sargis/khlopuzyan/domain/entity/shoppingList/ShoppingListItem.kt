@@ -5,5 +5,5 @@ data class ShoppingListItem(
     val name: String,
     val amount: Float,
     val pricePerItem: Float,
-    val imageUrl: String
+    val imageUrl: String,
 )

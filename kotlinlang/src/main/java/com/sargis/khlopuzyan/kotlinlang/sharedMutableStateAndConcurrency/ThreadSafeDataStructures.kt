@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger
 
 private val counter = AtomicInteger()
 
-fun main() = runBlocking {
+private fun main() = runBlocking {
     withContext(Dispatchers.Default) {
         massiveRun {
             counter.incrementAndGet()

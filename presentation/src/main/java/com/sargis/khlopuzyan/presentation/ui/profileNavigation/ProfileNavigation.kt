@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.profile_navigation
+package com.sargis.khlopuzyan.presentation.ui.profileNavigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
@@ -21,8 +21,8 @@ fun ProfileNavigation() {
                 defaultValue = ""
                 nullable = true
             })
-        ) { entry ->
-            ProfileDetailScreen(name = entry.arguments?.getString("name"))
+        ) { backStackEntry ->
+            ProfileDetailScreen(name = backStackEntry.arguments?.getString("name"))
         }
     }
 }

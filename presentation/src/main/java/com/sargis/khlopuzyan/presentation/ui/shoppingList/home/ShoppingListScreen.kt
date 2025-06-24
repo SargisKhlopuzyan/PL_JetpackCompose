@@ -46,10 +46,18 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ShoppingListScreen(
     navController: NavController,
-    viewModel: ShoppingListViewModel = koinViewModel()
+    viewModel: ShoppingListViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    ShoppingListScreen(navController, uiState)
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ShoppingListScreen(
+    navController: NavController,
+    uiState: ShoppingListState,
+) {
     val lazyGridState = rememberLazyGridState(
         initialFirstVisibleItemIndex = 0
     )
@@ -96,7 +104,11 @@ fun ShoppingListScreen(
                     uiState.items?.let { items ->
                         items(items.size) { i ->
                             ShoppingListItemView(items[i]) {
-                                navController.navigate(ShoppingListScreens.ShoppingListDetailScreen.route)
+                                navController.navigate(
+                                    ShoppingListScreens.ShoppingListDetailScreen.withArgs(
+                                        items[i].id.toString()
+                                    )
+                                )
                             }
                         }
                     }
@@ -145,5 +157,6 @@ private fun ShoppingListItemView(shoppingListItem: ShoppingListItem, callback: (
 @Preview
 @Composable
 fun ShoppingListScreenPreview() {
-    ShoppingListScreen(rememberNavController())
+    val uiState = ShoppingListState()
+    ShoppingListScreen(rememberNavController(), uiState)
 }

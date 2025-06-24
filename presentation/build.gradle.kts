@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    // This is for passing data between destinations by navigation Component
+//    alias(libs.plugins.safe.args) apply false
 }
 
 android {
@@ -25,10 +27,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -61,10 +65,14 @@ dependencies {
     implementation(libs.material)
 
     // Coil
-    implementation(libs.coil3.coil.compose)
+    implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+
     // Extended Icons
 //    implementation(libs.material.icons.extended)
+
+    // Serialization
+//    implementation(libs.kotlinx.serialization.json)
 
     // Injection Koin
     implementation(libs.koin.android)

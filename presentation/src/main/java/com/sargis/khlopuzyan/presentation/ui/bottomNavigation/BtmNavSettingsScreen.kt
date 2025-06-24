@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.bottomNavigation
+package com.sargis.khlopuzyan.presentation.ui.bottomNavigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun BtmNavHomeScreen() {
+fun BtmNavSettingsScreen() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Home screen")
+        Text(text = "Settings screen")
     }
 }

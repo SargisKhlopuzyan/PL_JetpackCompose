@@ -5,7 +5,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.yield
 
-fun main() {
+private fun main() {
     runBlocking {
         val job = launch {
             val child = launch {

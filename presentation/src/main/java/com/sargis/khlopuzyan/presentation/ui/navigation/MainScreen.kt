@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.main
+package com.sargis.khlopuzyan.presentation.ui.navigation
 
 sealed class MainScreen(val route: String) {
     object LazyGridScreen : MainScreen("lazy_grid_screen")

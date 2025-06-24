@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface ShoppingListDataStore {
     suspend fun addShoppingListItem(shoppingListEntity: ShoppingListEntity)
     fun observeAllShoppingListItems(): Flow<List<ShoppingListEntity>>
-    fun getShoppingListItemById(id: Long): ShoppingListEntity
+    fun getShoppingListItemById(id: Long): ShoppingListEntity?
     suspend fun upsertShoppingListItem(shoppingListEntity: ShoppingListEntity)
     suspend fun deleteShoppingListItem(id: Long)
 }
@@ -23,7 +23,7 @@ class ShoppingListDataStoreImpl(
         return dao.observeAllShoppingListItems()
     }
 
-    override fun getShoppingListItemById(id: Long): ShoppingListEntity {
+    override fun getShoppingListItemById(id: Long): ShoppingListEntity? {
         return dao.getShoppingListItemById(id)
     }
 

@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
 
-fun main() {
+private fun main() {
     val time = measureTimeMillis {
         val one = function1Async()
         val two = function2Async()

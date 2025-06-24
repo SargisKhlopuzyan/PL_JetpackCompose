@@ -12,7 +12,7 @@ import kotlinx.coroutines.runBlocking
  * Cold Flow: Values are emitted only when collected, and each collector gets a fresh sequence of values.
  * Hot Flow: Values are continuously emitted regardless of collectors, with new collectors receiving the latest values.
  * */
-fun main() {
+private fun main() {
     val flowType = FlowType.Hot_Shared_Flow
     runBlocking {
         when (flowType) {

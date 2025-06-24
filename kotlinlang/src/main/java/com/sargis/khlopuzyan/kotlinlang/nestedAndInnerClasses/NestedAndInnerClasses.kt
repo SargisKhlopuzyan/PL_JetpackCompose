@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.nestedAndInnerClasses
 
-fun main() {
+private fun main() {
     val nested = Outer.Nested()
     val inner = Outer().Inner()
 

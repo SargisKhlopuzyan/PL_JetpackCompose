@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.lambdas
 
-fun main() {
+private fun main() {
     val a = A()
     val b = B()
     val c: C = a.extendedFunction(b)

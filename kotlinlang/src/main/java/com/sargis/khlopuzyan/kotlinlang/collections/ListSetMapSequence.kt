@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.collections
 
-fun main() {
+private fun main() {
     val list: List<String> = listOf()
     val set: Set<String> = setOf<String>("1")
     val linkedSet: LinkedHashSet<String> = linkedSetOf<String>("1")

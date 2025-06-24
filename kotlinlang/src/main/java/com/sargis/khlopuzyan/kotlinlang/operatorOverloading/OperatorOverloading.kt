@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.operatorOverloading
 
-fun main() {
+private fun main() {
     val point = Point(10, 20)
     println(-point)  // prints "Point(x=-10, y=-20)"
 }

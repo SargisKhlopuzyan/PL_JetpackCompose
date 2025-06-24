@@ -6,7 +6,7 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.produce
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+private fun main() {
     runBlocking {
         val numbers = produceNumbers()
 //        val squares  = square(numbers)

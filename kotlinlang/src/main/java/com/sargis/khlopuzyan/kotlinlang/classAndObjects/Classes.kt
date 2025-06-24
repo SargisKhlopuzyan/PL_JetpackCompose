@@ -2,7 +2,7 @@ package com.sargis.khlopuzyan.kotlinlang.classAndObjects
 
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+private fun main() {
     runBlocking {
 //        InitOrderDemo("Hello")
         InitOrderDemo("Hello", 36)

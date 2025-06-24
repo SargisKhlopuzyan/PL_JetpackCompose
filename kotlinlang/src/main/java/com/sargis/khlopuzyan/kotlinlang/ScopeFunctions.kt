@@ -6,7 +6,7 @@ import kotlin.random.Random
  * let, run, with, apply, also
  * */
 
-fun main() {
+private fun main() {
     val anyClass = randomFunction()
     println("anyClass: $anyClass")
 

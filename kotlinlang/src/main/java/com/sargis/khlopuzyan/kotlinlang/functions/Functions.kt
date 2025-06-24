@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.functions
 
-fun main() {
+private fun main() {
     val callback: (Int, String, Float) -> String = { a: Int, b: String, c: Float ->
         ""
     }

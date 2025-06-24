@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeoutOrNull
 
-fun main() {
+private fun main() {
     runBlocking {
         val xxxx = produce<Int> {
 

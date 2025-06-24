@@ -3,7 +3,7 @@ package com.sargis.khlopuzyan.kotlinlang.lambdas
 import kotlin.math.max
 import kotlin.reflect.KFunction
 
-fun main() {
+private fun main() {
     val customIntClass = CustomIntClass()
 //    val lambda1: KFunction<CustomIntClass> = ::CustomIntClass
 //    val lambda: (String) -> Int? = ::CustomIntClass

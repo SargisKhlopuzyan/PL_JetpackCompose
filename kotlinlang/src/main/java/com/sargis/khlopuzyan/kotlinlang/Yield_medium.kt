@@ -4,7 +4,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.yield
 
-fun main() {
+private fun main() {
     runBlocking {
         val jobA = launch {
             repeat(5) {

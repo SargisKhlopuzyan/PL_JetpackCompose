@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.dataClasses
 
-fun main() {
+private fun main() {
     val user = DataClass("Sargis", 36)
     user.equals(null)
     user.hashCode()

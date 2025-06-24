@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.cancellable
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+private fun main() {
     runBlocking {
 //        foo().collect { value ->
 //            if (value == 3) cancel()

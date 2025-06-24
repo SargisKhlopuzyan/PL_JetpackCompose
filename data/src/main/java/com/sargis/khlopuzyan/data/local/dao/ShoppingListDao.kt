@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface ShoppingListDao {
 
     @Query("SELECT * FROM shopping_list WHERE id=:id")
-    fun getShoppingListItemById(id: Long): ShoppingListEntity
+    fun getShoppingListItemById(id: Long): ShoppingListEntity?
 
     @Query("SELECT * FROM shopping_list")
     fun observeAllShoppingListItems(): Flow<List<ShoppingListEntity>>

@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.inlineFunctions
 
-fun main() {
+private fun main() {
     val x = MyTreeNode<String>(
         null,
         MyTreeNode<String>(null, MyTreeNode(null, MyTreeNode<String>(null, null)))

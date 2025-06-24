@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.sealedClass
 
-fun main() {
+private fun main() {
     val error: Error = FileReadError(file = "file")
     when(error) {
         is DatabaseError -> {}

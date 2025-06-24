@@ -32,7 +32,7 @@ import kotlin.coroutines.cancellation.CancellationException
 //}
 
 @OptIn(DelicateCoroutinesApi::class)
-fun main() = runBlocking {
+private fun main() = runBlocking {
     val handler = CoroutineExceptionHandler { _, exception ->
         println("CoroutineExceptionHandler got $exception")
     }

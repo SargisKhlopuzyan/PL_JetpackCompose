@@ -18,7 +18,7 @@ import kotlinx.coroutines.runBlocking
  *              launch, async, or runBlocking.
  * Different libraries can define additional coroutine builders.
  * */
-fun main() {
+private fun main() {
 
 //    helloWorld()
 

@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.system.measureTimeMillis
 
-fun main() {
+private fun main() {
     val timeInMs1 = measureTimeMillis {
         val reentrantLock = ReentrantLock()
         val result = lookInline(reentrantLock) {

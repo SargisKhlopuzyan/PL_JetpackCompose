@@ -7,7 +7,7 @@ import com.sargis.khlopuzyan.presentation.base.runOnBackground
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class ShoppingListViewModel(
-    val getShoppingListItemsUseCase: GetShoppingListItemsUseCase
+    val getShoppingListItemsUseCase: GetShoppingListItemsUseCase,
 ) : BaseViewModel<ShoppingListState, ShoppingListUIEvent>() {
 
     override val _uiState: MutableStateFlow<ShoppingListState> =

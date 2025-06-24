@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.navigation.lazy_grid
+package com.sargis.khlopuzyan.presentation.ui.lazy_grid
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.sargis.khlopuzyan.presentation.ui.navigation.main.MainScreen
+import com.sargis.khlopuzyan.presentation.ui.navigation.MainScreen
 import kotlinx.coroutines.launch
 
 @Composable

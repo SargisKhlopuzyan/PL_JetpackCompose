@@ -6,7 +6,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.yield
 
-fun main(): Unit = runBlocking {
+private fun main(): Unit = runBlocking {
     try {
         supervisorScope {
             launch {

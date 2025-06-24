@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.classAndObjects
 
-fun main() {
+private fun main() {
     val employee = Employee("a", "b", 1)
     employee.name
 }

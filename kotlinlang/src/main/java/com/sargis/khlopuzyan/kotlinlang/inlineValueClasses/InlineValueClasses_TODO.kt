@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.kotlinlang.inlineValueClasses
 
-fun main() {
+private fun main() {
     // No actual instantiation of class 'Password' happens
     // At runtime 'securePassword' contains just 'String'
     val securePassword = Password("Don't try this in production")

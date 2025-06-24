@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-fun main() {
+private fun main() {
     runBlocking {
 //        simple()
 //            .catch { e -> emit("Caught : $e") } // emit on exception

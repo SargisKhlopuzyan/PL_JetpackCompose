@@ -2,7 +2,7 @@ package com.sargis.khlopuzyan.kotlinlang.generics
 
 // declaration-site variance
 
-fun main() {
+private fun main() {
     sort(listOf("S"))
 
     val result = printTypeName<String>()

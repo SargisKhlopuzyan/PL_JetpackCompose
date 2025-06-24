@@ -31,7 +31,7 @@ import kotlinx.coroutines.runBlocking
 //    }
 //}
 
-fun main() {
+private fun main() {
     runBlocking {
 
         val handler = CoroutineExceptionHandler { _, exception ->

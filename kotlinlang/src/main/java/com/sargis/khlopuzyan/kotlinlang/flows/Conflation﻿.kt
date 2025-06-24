@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
 
-fun main() {
+private fun main() {
     runBlocking {
         val time = measureTimeMillis {
             simple()

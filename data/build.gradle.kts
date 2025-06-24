@@ -76,6 +76,13 @@ dependencies {
     // Gson
     implementation(libs.gson)
 
+    // Image downloader from url
+//    implementation(libs.volley)
+    // Coil
+    // Coil
+//    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
     // Injection Koin
     implementation(libs.koin.android)
     implementation(libs.androidx.core.ktx)
