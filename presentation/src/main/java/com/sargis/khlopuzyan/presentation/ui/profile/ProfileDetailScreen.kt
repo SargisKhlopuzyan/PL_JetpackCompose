@@ -27,10 +27,10 @@ fun ProfileDetailScreen(navController: NavController, name: String?) {
                 navController.popBackStack()
             }
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Box(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .fillMaxSize()
                 .padding(horizontal = 50.dp),
             contentAlignment = Alignment.TopCenter

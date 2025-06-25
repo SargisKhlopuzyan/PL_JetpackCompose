@@ -82,13 +82,13 @@ fun ShoppingListScreen(
                 }
             )
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.White)
                 .padding(16.dp)
-                .padding(innerPadding),
+                .padding(contentPadding),
             horizontalAlignment = Alignment.Start
         ) {
             LazyVerticalGrid(

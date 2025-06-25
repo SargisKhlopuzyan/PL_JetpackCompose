@@ -42,10 +42,10 @@ fun ProfileScreen(navController: NavController) {
                 navController.popBackStack()
             }
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .fillMaxSize()
                 .padding(horizontal = 50.dp),
             verticalArrangement = Arrangement.Center

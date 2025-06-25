@@ -44,7 +44,7 @@ fun BtmNavMainScreen() {
                     navController.navigate(it.route)
                 }
             )
-        }) { innerPadding ->
+        }) { contentPadding ->
         BottomNavigation(navController)
     }
 }

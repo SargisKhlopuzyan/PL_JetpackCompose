@@ -9,6 +9,8 @@ import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
 import com.sargis.khlopuzyan.presentation.ui.main.lazy_grid.LazyGridScreen
 import com.sargis.khlopuzyan.presentation.ui.profile.navigation.profileGraph
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.shoppingListGraph
+import com.sargis.khlopuzyan.presentation.ui.supportMultiScreenSizes.navigation.supportMultiScreenSizesGraph
+import com.sargis.khlopuzyan.presentation.ui.swipeableTabRows.SwipeableTabRowsScreen
 import com.sargis.khlopuzyan.presentation.ui.uris.UriScreen
 
 @Composable
@@ -32,5 +34,9 @@ fun MainNavigation() {
         composable(route = MainScreen.Uri.route) {
             UriScreen()
         }
+        composable(route = MainScreen.SwipeableTabRows.route) {
+            SwipeableTabRowsScreen(navController)
+        }
+        supportMultiScreenSizesGraph(navController)
     }
 }

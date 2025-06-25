@@ -89,12 +89,12 @@ fun ImageSearchScreen(
                 navController.popBackStack()
             }
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.White)
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .padding(16.dp)
         ) {
 

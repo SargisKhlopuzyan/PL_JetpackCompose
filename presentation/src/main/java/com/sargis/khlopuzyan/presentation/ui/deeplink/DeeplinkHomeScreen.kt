@@ -20,11 +20,11 @@ fun DeeplinkHomeScreen(navController: NavController) {
     Scaffold(
         modifier = Modifier.Companion
             .fillMaxSize()
-    ) { innerPadding ->
+    ) { contentPadding ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .background(Color.Green),
             contentAlignment = Alignment.Center
         ) {

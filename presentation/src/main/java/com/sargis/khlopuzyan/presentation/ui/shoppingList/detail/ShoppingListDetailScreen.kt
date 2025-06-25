@@ -75,10 +75,10 @@ fun ShoppingListDetailScreen(
                 navController.popBackStack()
             }
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .background(Color.White),

@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainScreen
+import com.sargis.khlopuzyan.presentation.ui.main.navigation.getMainScreens
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import kotlinx.coroutines.launch
 
@@ -47,10 +47,10 @@ fun LazyGridScreen(navController: NavController) {
         topBar = {
             CommonTopAppBar("Main - Lazy grid")
         }
-    ) { innerPadding ->
+    ) { contentPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(contentPadding)
                 .padding(16.dp)
         ) {
             Button(
@@ -62,7 +62,6 @@ fun LazyGridScreen(navController: NavController) {
             ) {
                 Text(text = "Scroll to 99")
             }
-            val screens = listOf("Profile", "Bottom Navigation", "Deeplink", "Shopping", "Uri")
             LazyVerticalGrid(
                 modifier = Modifier.fillMaxHeight(),
                 columns = GridCells.Fixed(3),
@@ -71,30 +70,13 @@ fun LazyGridScreen(navController: NavController) {
                 state = state,
 //        columns = GridCells.Adaptive(100.dp),
                 content = {
-                    item {
-                        LazyGridItem(screens[0], {
-                            navController.navigate(MainScreen.ProfileScreen.route)
-                        })
-                    }
-                    item {
-                        LazyGridItem(screens[1], {
-                            navController.navigate(MainScreen.BtmNavMainScreen.route)
-                        })
-                    }
-                    item {
-                        LazyGridItem(screens[2], {
-                            navController.navigate(MainScreen.DeeplinkScreen.route)
-                        })
-                    }
-                    item {
-                        LazyGridItem(screens[3], {
-                            navController.navigate(MainScreen.ShoppingScreen.route)
-                        })
-                    }
-                    item {
-                        LazyGridItem(screens[4], {
-                            navController.navigate(MainScreen.Uri.route)
-                        })
+                    for (screen in getMainScreens()) {
+                        item {
+//                            LazyGridItem(screen.javaClass.kotlin.simpleName!!) {
+                            LazyGridItem(screen.route) {
+                                navController.navigate(screen.route)
+                            }
+                        }
                     }
                     items(100) { i ->
                         LazyGridItem("TODO - $i", {})
