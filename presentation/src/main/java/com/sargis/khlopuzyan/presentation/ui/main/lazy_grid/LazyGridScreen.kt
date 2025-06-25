@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.lazy_grid
+package com.sargis.khlopuzyan.presentation.ui.main.lazy_grid
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,7 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.sargis.khlopuzyan.presentation.ui.navigation.MainScreen
+import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainScreen
+import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import kotlinx.coroutines.launch
 
 @Composable
@@ -41,7 +42,12 @@ fun LazyGridScreen(navController: NavController) {
 
     val scope = rememberCoroutineScope()
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            CommonTopAppBar("Main - Lazy grid")
+        }
+    ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding)
@@ -56,7 +62,7 @@ fun LazyGridScreen(navController: NavController) {
             ) {
                 Text(text = "Scroll to 99")
             }
-            val screens = listOf("Profile", "Bottom Navigation", "Deeplink", "Shopping")
+            val screens = listOf("Profile", "Bottom Navigation", "Deeplink", "Shopping", "Uri")
             LazyVerticalGrid(
                 modifier = Modifier.fillMaxHeight(),
                 columns = GridCells.Fixed(3),
@@ -83,6 +89,11 @@ fun LazyGridScreen(navController: NavController) {
                     item {
                         LazyGridItem(screens[3], {
                             navController.navigate(MainScreen.ShoppingScreen.route)
+                        })
+                    }
+                    item {
+                        LazyGridItem(screens[4], {
+                            navController.navigate(MainScreen.Uri.route)
                         })
                     }
                     items(100) { i ->

@@ -2,11 +2,14 @@ package com.sargis.khlopuzyan.data.repository
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import androidx.core.net.toUri
 import coil3.ImageLoader
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
@@ -19,7 +22,7 @@ import java.io.File
 class MediaStoreUtil(
     private val context: Context,
 ) {
-    suspend fun saveImage(bitmap: Bitmap) {
+    suspend fun saveImage(bitmap: Bitmap, name: String) {
         withContext(Dispatchers.IO) {
             val resolver = context.contentResolver
             val imageCollection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -30,6 +33,13 @@ class MediaStoreUtil(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             }
 
+            val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            val imageFile = File(storageDir, name)
+
+            println("storageDir: $storageDir")
+            println("imageFile: $imageFile")
+            println("imageFile.toUri(): ${imageFile.toUri()}")
+
             val timeInMillis = System.currentTimeMillis()
 
             val imageContentValues = ContentValues().apply {
@@ -39,7 +49,7 @@ class MediaStoreUtil(
                 )
                 put(
                     MediaStore.Images.Media.DISPLAY_NAME,
-                    "${timeInMillis}_image" + ".jpg"
+                    "$name.jpg"
                 )
                 put(
                     MediaStore.Images.Media.MIME_TYPE,
@@ -203,23 +213,6 @@ class MediaStoreUtil(
         }
     }
 
-    suspend fun downloadImage(url: String) {
-        withContext(Dispatchers.IO) {
-            val loader = ImageLoader(context)
-
-            val request = ImageRequest.Builder(context)
-                .data(url)
-                .allowHardware(false) // Disable hardware bitmaps.
-                .build()
-
-            val resultImage = (loader.execute(request) as SuccessResult).image
-
-            val bitmap = resultImage.toBitmap()
-
-            saveImage(bitmap)
-        }
-    }
-
     fun getRawAudioFile(resourceId: Int): File {
         val inputStream = context.resources.openRawResource(resourceId)
 
@@ -232,5 +225,41 @@ class MediaStoreUtil(
         }
 
         return audioFile
+    }
+
+    suspend fun downloadImage(url: String, name: String) {
+        withContext(Dispatchers.IO) {
+            val loader = ImageLoader(context)
+
+            val request = ImageRequest.Builder(context)
+                .data(url)
+                .allowHardware(false) // Disable hardware bitmaps.
+                .build()
+
+            val resultImage = (loader.execute(request) as SuccessResult).image
+
+            val bitmap = resultImage.toBitmap()
+
+            saveImage(bitmap, name)
+        }
+    }
+
+    fun getBitmapFromUri(uri: Uri): Bitmap {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val source: ImageDecoder.Source =
+                ImageDecoder.createSource(context.contentResolver, uri)
+            ImageDecoder.decodeBitmap(source)
+        } else {
+            MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
+        }
+    }
+
+    fun shareImage(uri: Uri) {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "image/*"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        context.startActivity(Intent.createChooser(shareIntent, "Share via"))
     }
 }

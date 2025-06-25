@@ -12,21 +12,28 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CommonTopAppBar(title: String, onClick: () -> Unit) {
+fun CommonTopAppBar(
+    title: String,
+    icon: ImageVector? = Icons.AutoMirrored.Filled.ArrowBack,
+    onClick: (() -> Unit)? = null,
+) {
     TopAppBar(
-        title = { Text("Shopping List") },
+        title = { Text(title) },
         navigationIcon = {
-            IconButton(
-                modifier = Modifier.wrapContentSize(),
-                onClick = onClick
-            ) {
-                Icon(
-                    Icons.AutoMirrored.Filled.ArrowBack,
-                    "ArrowBack",
-                )
+            if (icon != null && onClick != null) {
+                IconButton(
+                    modifier = Modifier.wrapContentSize(),
+                    onClick = onClick
+                ) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        "ArrowBack",
+                    )
+                }
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(

@@ -42,7 +42,7 @@ import coil3.size.Size
 import com.sargis.khlopuzyan.commonUi.CommonUiTheme
 import com.sargis.khlopuzyan.commonUi.component.button.CommonUiPrimaryButton
 import com.sargis.khlopuzyan.presentation.R
-import com.sargis.khlopuzyan.presentation.ui.shoppingList.ShoppingListScreens
+import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.ShoppingListScreens
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.imageSearch.RESULT_KEY_IMAGE_URL
 import com.sargis.khlopuzyan.presentation.util.conditional

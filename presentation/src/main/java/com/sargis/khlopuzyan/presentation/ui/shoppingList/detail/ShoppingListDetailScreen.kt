@@ -45,7 +45,7 @@ fun ShoppingListDetailScreen(
     viewModel.onEvent(ShoppingListDetailUiEvent.LoadShoppingListItem(shoppingListItemId))
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
+    val current = LocalContext.current
     ShoppingListDetailScreen(
         navController,
         uiState,
@@ -53,7 +53,7 @@ fun ShoppingListDetailScreen(
             viewModel.onEvent(ShoppingListDetailUiEvent.SaveImage)
         },
         shareImageCallback = {
-            viewModel.onEvent(ShoppingListDetailUiEvent.ShareImage)
+            viewModel.onEvent(ShoppingListDetailUiEvent.ShareImage(current))
         },
     )
 }

@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.bottomNavigation
+package com.sargis.khlopuzyan.presentation.ui.bottomNavigation.navigation
 
 sealed class BtmNavScreen(val route: String) {
     object BtmNavHomeScreen : BtmNavScreen("btm_nav_home_screen")

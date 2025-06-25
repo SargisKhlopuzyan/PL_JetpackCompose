@@ -38,7 +38,7 @@ import com.sargis.khlopuzyan.commonUi.CommonUiTheme
 import com.sargis.khlopuzyan.commonUi.component.button.CommonUiSecondaryButton
 import com.sargis.khlopuzyan.domain.entity.shoppingList.ShoppingListItem
 import com.sargis.khlopuzyan.presentation.R
-import com.sargis.khlopuzyan.presentation.ui.shoppingList.ShoppingListScreens
+import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.ShoppingListScreens
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.common.CommonTopAppBar
 import org.koin.androidx.compose.koinViewModel
 

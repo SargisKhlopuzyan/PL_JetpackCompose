@@ -93,7 +93,7 @@ private suspend fun emitHotFlow_SharedFlow() {
     }
 }
 
-enum class FlowType {
+private enum class FlowType {
     Cold_Flow,
     Hot_State_Flow,
     Hot_Shared_Flow

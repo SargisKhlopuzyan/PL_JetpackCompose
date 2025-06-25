@@ -9,6 +9,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.navigation.BottomNavigation
+import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.navigation.BtmNavScreen
 
 @Composable
 fun BtmNavMainScreen() {

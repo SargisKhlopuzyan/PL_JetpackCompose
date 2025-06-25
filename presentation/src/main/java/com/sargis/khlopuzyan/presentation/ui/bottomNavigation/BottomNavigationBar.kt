@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.navigation.BtmNavScreen
 
 @Composable
 fun BottomNavigationBar(

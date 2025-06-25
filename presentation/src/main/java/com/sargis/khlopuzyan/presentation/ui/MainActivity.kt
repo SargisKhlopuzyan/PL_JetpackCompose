@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.sargis.khlopuzyan.presentation.ui.navigation.MainNavigation
+import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainNavigation
 import com.sargis.khlopuzyan.presentation.ui.theme.PL_JetpackComposeTheme
 
 class MainActivity : ComponentActivity() {

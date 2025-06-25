@@ -13,7 +13,7 @@ private val viewModelModule = module {
         ShoppingListViewModel(get())
     }
     viewModel {
-        ShoppingListDetailViewModel(get(), get())
+        ShoppingListDetailViewModel(get(), get(), get())
     }
     viewModel {
         ShoppingListAddViewModel(get())

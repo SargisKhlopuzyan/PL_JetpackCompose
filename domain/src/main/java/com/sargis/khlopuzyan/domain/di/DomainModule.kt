@@ -10,6 +10,8 @@ import com.sargis.khlopuzyan.domain.usecases.SaveShoppingListItemUseCase
 import com.sargis.khlopuzyan.domain.usecases.SaveShoppingListItemUseCaseImpl
 import com.sargis.khlopuzyan.domain.usecases.SearchImagesUseCase
 import com.sargis.khlopuzyan.domain.usecases.SearchImagesUseCaseImpl
+import com.sargis.khlopuzyan.domain.usecases.ShareImageUseCase
+import com.sargis.khlopuzyan.domain.usecases.ShareImageUseCaseImpl
 import org.koin.dsl.module
 
 private val useCaseModule = module {
@@ -18,6 +20,7 @@ private val useCaseModule = module {
     single<GetShoppingListItemUseCase> { GetShoppingListItemUseCaseImpl(get()) }
     single<SaveShoppingListItemUseCase> { SaveShoppingListItemUseCaseImpl(get()) }
     single<SaveImageUseCase> { SaveImageUseCaseImpl(get()) }
+    single<ShareImageUseCase> { ShareImageUseCaseImpl(get()) }
 }
 
 val domainModule = listOf(useCaseModule/*, utilsModule*/)

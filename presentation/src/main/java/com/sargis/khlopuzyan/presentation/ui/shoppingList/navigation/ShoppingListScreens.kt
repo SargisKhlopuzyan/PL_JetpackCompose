@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.shoppingList
+package com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation
 
 sealed class ShoppingListScreens(val route: String) {
     object ShoppingListScreen : ShoppingListScreens("shopping_list_screen")

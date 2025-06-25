@@ -1,4 +1,4 @@
-package com.sargis.khlopuzyan.presentation.ui.shoppingList
+package com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -6,7 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.sargis.khlopuzyan.presentation.ui.navigation.MainScreen
+import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.add.ShoppingListAddScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.detail.ShoppingListDetailScreen
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.home.ShoppingListScreen
