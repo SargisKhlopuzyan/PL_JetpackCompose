@@ -9,6 +9,7 @@ sealed class MainScreen(val route: String) {
     object Uri : MainScreen("uri")
     object SwipeableTabRows : MainScreen("swipeable_tab_rows")
     object SupportMultiScreenSizes : MainScreen("support_multi_screen_sizes")
+    object SharedViewModelScreen : MainScreen("sharedView_model_screen")
 }
 
 fun getMainScreens() = listOf<MainScreen>(
@@ -20,4 +21,5 @@ fun getMainScreens() = listOf<MainScreen>(
     MainScreen.Uri,
     MainScreen.SwipeableTabRows,
     MainScreen.SupportMultiScreenSizes,
+    MainScreen.SharedViewModelScreen,
 )
