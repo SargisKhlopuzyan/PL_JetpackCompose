@@ -71,6 +71,12 @@ fun JetpackComposeMainScreen(
                     navController.navigate(ComposeScreen.EffectHandlersScreen.route)
                 }
             }
+
+            item {
+                LazyGridItem("Kotlin Flows") {
+                    navController.navigate(ComposeScreen.KotlinFlowsScreen.route)
+                }
+            }
         }
     }
 }

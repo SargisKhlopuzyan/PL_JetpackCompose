@@ -7,4 +7,5 @@ sealed class ComposeScreen(val route: String) {
     object StylingTextScreen : ComposeScreen("styling_text_screen")
     object TextfieldsButtonsSnackbarsScreen : ComposeScreen("textfields_buttons_snackbars_screen")
     object EffectHandlersScreen : ComposeScreen("effect_handlers_screen")
+    object KotlinFlowsScreen : ComposeScreen("kotlin_flows_screen")
 }

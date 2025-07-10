@@ -8,6 +8,7 @@ import com.sargis.khlopuzyan.presentation.ui.compose.JetpackComposeMainScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.colorBoxScreen.ColorBoxScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.composeStateTest.ComposeStateTestScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.EffectHandlersScreen
+import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.stylingText.StylingTextScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.textfieldsButtonsSnackbars.TextfieldsButtonsSnackbarsScreen
 import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainScreen
@@ -46,6 +47,11 @@ fun NavGraphBuilder.composeTestScreen(navController: NavController) {
             route = ComposeScreen.EffectHandlersScreen.route
         ) {
             EffectHandlersScreen()
+        }
+        composable(
+            route = ComposeScreen.KotlinFlowsScreen.route
+        ) {
+            KotlinFlowsScreen(navController)
         }
     }
 }
