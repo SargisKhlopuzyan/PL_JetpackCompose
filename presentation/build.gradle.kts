@@ -52,6 +52,9 @@ dependencies {
     // PL_JetpackCompose NAVIGATION
     implementation(libs.androidx.navigation.compose)
 
+
+//    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -60,7 +63,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-
+    // Compose preview
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.material.icons.extended.android)
@@ -75,21 +78,23 @@ dependencies {
     // Serialization
 //    implementation(libs.kotlinx.serialization.json)
 
+
     // Injection Koin
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
-    implementation (libs.koin.androidx.workmanager)
-    implementation (libs.koin.androidx.compose.navigation)
-
-    testImplementation(libs.junit)
-    testImplementation(libs.google.truth.v11)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation(libs.google.truth.v11)
+    implementation(libs.koin.androidx.compose.navigation)
+    implementation(libs.koin.androidx.workmanager)
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.google.truth.v11)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.google.truth.v11)
+
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    // UI testing
+    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -5,8 +5,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.BtmNavMainScreen
+import com.sargis.khlopuzyan.presentation.ui.compose.navigation.composeTestScreen
 import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
 import com.sargis.khlopuzyan.presentation.ui.main.lazy_grid.LazyGridScreen
+import com.sargis.khlopuzyan.presentation.ui.messageQueue.MessageQueueScreen
 import com.sargis.khlopuzyan.presentation.ui.profile.navigation.profileGraph
 import com.sargis.khlopuzyan.presentation.ui.sharedViewModel.navigation.SharedNavigation
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.shoppingListGraph
@@ -41,5 +43,12 @@ fun MainNavigation() {
         supportMultiScreenSizesGraph(navController)
 
         SharedNavigation(navController)
+
+        composable(route = MainScreen.MessageQueue.route) {
+            MessageQueueScreen()
+        }
+
+        composeTestScreen(navController)
+
     }
 }

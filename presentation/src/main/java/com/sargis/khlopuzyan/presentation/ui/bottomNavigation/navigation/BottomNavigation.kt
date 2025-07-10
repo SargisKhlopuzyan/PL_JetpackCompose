@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.BtmNavChatScreen
 import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.BtmNavHomeScreen
-import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.navigation.BtmNavScreen
 import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.BtmNavSettingsScreen
 
 @Composable

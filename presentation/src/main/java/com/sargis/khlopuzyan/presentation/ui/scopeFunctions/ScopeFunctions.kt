@@ -40,6 +40,21 @@ fun main() {
         12
     }
     // resultAlso is CUSTOM CLASS
+
+
+    // ****************************** //
+    // 5)
+    val resultApply = customClass.apply {
+        this
+        12
+    }
+    // resultApply is CUSTOM CLASS
+
+
 }
 
-class CustomClass
+open class CustomClass {
+    fun getAge() {
+
+    }
+}

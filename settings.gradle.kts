@@ -20,7 +20,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PL_JetpackCompose"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS") //TODO
+// This for modules to make it possible use implementation(projects.data), etc
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 include(":presentation")
