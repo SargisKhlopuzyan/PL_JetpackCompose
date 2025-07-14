@@ -83,6 +83,12 @@ fun JetpackComposeMainScreen(
                     navController.navigate(ComposeScreen.KotlinHotFlowsScreen.route)
                 }
             }
+
+            item {
+                LazyGridItem("Hot Flows vs. Cold Flows") {
+                    navController.navigate(ComposeScreen.KotlinHotFlowsVsColdFlowsScreen.route)
+                }
+            }
         }
     }
 }

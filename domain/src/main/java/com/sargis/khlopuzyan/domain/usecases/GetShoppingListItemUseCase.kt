@@ -8,7 +8,7 @@ interface GetShoppingListItemUseCase {
 }
 
 class GetShoppingListItemUseCaseImpl(
-    private val shoppingListRepository: ShoppingListRepository
+    private val shoppingListRepository: ShoppingListRepository,
 ) : GetShoppingListItemUseCase {
     override suspend fun getShoppingListItem(id: Long): ShoppingListItem? {
         return shoppingListRepository.getShoppingListItemById(id)

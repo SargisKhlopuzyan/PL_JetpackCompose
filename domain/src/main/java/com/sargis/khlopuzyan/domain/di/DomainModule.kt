@@ -4,6 +4,8 @@ import com.sargis.khlopuzyan.domain.usecases.GetShoppingListItemUseCase
 import com.sargis.khlopuzyan.domain.usecases.GetShoppingListItemUseCaseImpl
 import com.sargis.khlopuzyan.domain.usecases.GetShoppingListItemsUseCase
 import com.sargis.khlopuzyan.domain.usecases.GetShoppingListItemsUseCaseImpl
+import com.sargis.khlopuzyan.domain.usecases.LocationUseCase
+import com.sargis.khlopuzyan.domain.usecases.LocationUseCaseImpl
 import com.sargis.khlopuzyan.domain.usecases.SaveImageUseCase
 import com.sargis.khlopuzyan.domain.usecases.SaveImageUseCaseImpl
 import com.sargis.khlopuzyan.domain.usecases.SaveShoppingListItemUseCase
@@ -21,6 +23,7 @@ private val useCaseModule = module {
     single<SaveShoppingListItemUseCase> { SaveShoppingListItemUseCaseImpl(get()) }
     single<SaveImageUseCase> { SaveImageUseCaseImpl(get()) }
     single<ShareImageUseCase> { ShareImageUseCaseImpl(get()) }
+    single<LocationUseCase> { LocationUseCaseImpl(get()) }
 }
 
 val domainModule = listOf(useCaseModule/*, utilsModule*/)

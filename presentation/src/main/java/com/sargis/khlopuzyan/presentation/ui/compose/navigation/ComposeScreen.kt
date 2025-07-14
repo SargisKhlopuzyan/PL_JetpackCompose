@@ -9,4 +9,5 @@ sealed class ComposeScreen(val route: String) {
     object EffectHandlersScreen : ComposeScreen("effect_handlers_screen")
     object KotlinFlowsScreen : ComposeScreen("kotlin_flows_screen")
     object KotlinHotFlowsScreen : ComposeScreen("kotlin_hot_flows_screen")
+    object KotlinHotFlowsVsColdFlowsScreen : ComposeScreen("kotlin_hot_flows_vs_cold_flows_screen")
 }

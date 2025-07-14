@@ -4,6 +4,7 @@ import com.sargis.khlopuzyan.presentation.ui.compose.composeStateTest.ComposeSta
 import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.LaunchedEffectViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlows.KotlinHotFlowsViewModel
+import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlowsVsColdFlows.KotlinHotFlowsVsColdFlowsViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.add.ShoppingListAddViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.detail.ShoppingListDetailViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.home.ShoppingListViewModel
@@ -36,6 +37,9 @@ private val viewModelModule = module {
     }
     viewModel {
         KotlinHotFlowsViewModel()
+    }
+    viewModel {
+        KotlinHotFlowsVsColdFlowsViewModel(get())
     }
 }
 
