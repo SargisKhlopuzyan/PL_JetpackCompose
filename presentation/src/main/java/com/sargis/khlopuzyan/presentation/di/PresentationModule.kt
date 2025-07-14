@@ -3,6 +3,7 @@ package com.sargis.khlopuzyan.presentation.di
 import com.sargis.khlopuzyan.presentation.ui.compose.composeStateTest.ComposeStateTestScreenViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.LaunchedEffectViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsViewModel
+import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlows.KotlinHotFlowsViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.add.ShoppingListAddViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.detail.ShoppingListDetailViewModel
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.home.ShoppingListViewModel
@@ -32,6 +33,9 @@ private val viewModelModule = module {
     }
     viewModel {
         KotlinFlowsViewModel()
+    }
+    viewModel {
+        KotlinHotFlowsViewModel()
     }
 }
 
