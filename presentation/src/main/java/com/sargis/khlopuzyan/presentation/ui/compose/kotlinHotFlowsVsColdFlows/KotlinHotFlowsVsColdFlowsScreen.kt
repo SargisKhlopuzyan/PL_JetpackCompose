@@ -12,9 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.flow.stateIn
 import org.koin.androidx.compose.koinViewModel
 
 val locationPermissions = arrayOf(
@@ -22,6 +26,7 @@ val locationPermissions = arrayOf(
     Manifest.permission.ACCESS_COARSE_LOCATION
 )
 
+// https://www.youtube.com/watch?v=M8YtV47kaqA&ab_channel=PhilippLackner
 @Composable
 fun KotlinHotFlowsVsColdFlowsScreen(
     navController: NavController,
@@ -50,12 +55,34 @@ fun KotlinHotFlowsVsColdFlowsScreen(
             modifier = Modifier.padding(innerPadding)
         ) {
 
+            val scope = rememberCoroutineScope()
+            // Converts flow to SharedFlow
+//            val flow = remember {
+//                viewModel.observeLocationFlow().shareIn(
+//                    scope,
+//                    SharingStarted.Eagerly
+//                )
+//            }
+
+            // Converts flow to StateFlow
             val flow = remember {
-                viewModel.observeLocationFlow()
+                viewModel.observeLocationFlow().stateIn(
+                    scope,
+                    SharingStarted.Eagerly,
+                    initialValue = null
+                )
             }
 
             val location1 by flow.collectAsStateWithLifecycle(initialValue = null)
             val location2 by flow.collectAsStateWithLifecycle(initialValue = null)
+//
+            LaunchedEffect(location1) {
+                println("LOG_TAG -> Location update: (${location1?.latitude}, ${location1?.longitude})")
+            }
+
+            LaunchedEffect(location2) {
+                println("LOG_TAG -> Location update: (${location2?.latitude}, ${location2?.longitude})")
+            }
 
             Button(onClick = {
                 if (!isLocationPermissionsGrantedState.value) {
@@ -63,14 +90,6 @@ fun KotlinHotFlowsVsColdFlowsScreen(
                 }
             }) {
                 Text("Location Permissions ${isLocationPermissionsGrantedState.value}")
-            }
-
-            LaunchedEffect(location1) {
-                println("LOG_TAG -> Location update: (${location1?.latitude}, ${location1?.longitude})")
-            }
-
-            LaunchedEffect(location2) {
-                println("LOG_TAG -> Location update: (${location2?.latitude}, ${location2?.longitude})")
             }
 
             Button(onClick = {
