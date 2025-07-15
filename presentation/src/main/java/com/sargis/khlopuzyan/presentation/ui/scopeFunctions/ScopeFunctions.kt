@@ -1,6 +1,6 @@
 package com.sargis.khlopuzyan.presentation.ui.scopeFunctions
 
-fun main() {
+private fun main() {
     val customClass = CustomClass()
 
     // 1) run

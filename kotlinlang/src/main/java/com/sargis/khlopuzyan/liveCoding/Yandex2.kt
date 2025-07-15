@@ -43,7 +43,7 @@ class BatchLegacyHelper(
     }
 }
 
-fun main() = runBlocking {
+private fun main() = runBlocking {
     val legacyApi = object : LegacyApi {
         override suspend fun doRequest(
             request: Request,

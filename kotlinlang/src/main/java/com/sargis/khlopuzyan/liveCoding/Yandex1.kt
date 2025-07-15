@@ -7,7 +7,7 @@ val list = mutableListOf(1, 3, 5)
 //val tasks = HashSet<Task>()
 val tasks = mutableSetOf<Task>()
 
-fun main() {
+private fun main() {
     val task1 = Task(1, "Zadacha")
     val task2 = Task(1, "Zadacha")
 

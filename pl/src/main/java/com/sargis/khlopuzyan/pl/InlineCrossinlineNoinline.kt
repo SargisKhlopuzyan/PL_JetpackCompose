@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 
 
 //https://www.youtube.com/watch?v=Itb5fu4UVt4&ab_channel=PhilippLackner
-fun main() {
+private fun main() {
 
     val list = (1..100).toList()
     list.normalForEach {
