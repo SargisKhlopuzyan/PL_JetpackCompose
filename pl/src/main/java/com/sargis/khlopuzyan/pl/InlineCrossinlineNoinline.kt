@@ -34,7 +34,7 @@ fun main() {
         println(it)
     }
 
-    //*****************************************
+    /*****************************************/
     CoroutineScope(Dispatchers.Default).launch {
 //        return //TODO-ERROR
         return@launch //TODO-OK
@@ -46,7 +46,7 @@ fun main() {
     val async2 = executeAsync {
 
     }
-    //*****************************************
+    /*****************************************/
 
     runBlocking {
         launch {
@@ -65,15 +65,19 @@ fun main() {
         }
     }
 
-    //*****************************************
+    /*****************************************/
 
     "Hello".printClassName()
 
-    //*****************************************
+    /*****************************************/
+    //Inline variable
 
     val lastItem = list.lastItem
     val listItemInlined = list.get(list.lastIndex)
     println(lastItem)
+
+    /*****************************************/
+    //Inline class
 }
 
 inline fun <reified T> T.printClassName() {
@@ -109,7 +113,17 @@ inline fun executeAsync(crossinline action: () -> Unit) {
     }
 }
 
+/*****************************************/
+//Inline variable
+
 // We can use inlined version of this variable
 // the compiler will just copy "get() = get(lastIndex)" function in call side
 val <T> List<T>.lastItem: T
     get() = get(lastIndex)
+
+/*****************************************/
+//Inline class
+
+// Compiler shows an error as value class should be annotated with @JvmInline
+@JvmInline
+value class Month(val number: Int)
