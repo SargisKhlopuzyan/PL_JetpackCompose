@@ -10,4 +10,5 @@ sealed class ComposeScreen(val route: String) {
     object KotlinFlowsScreen : ComposeScreen("kotlin_flows_screen")
     object KotlinHotFlowsScreen : ComposeScreen("kotlin_hot_flows_screen")
     object KotlinHotFlowsVsColdFlowsScreen : ComposeScreen("kotlin_hot_flows_vs_cold_flows_screen")
+    object CoroutineCancellationAndExceptionHandlingScreen : ComposeScreen("coroutine_cancellation_and_exception_handling_screen")
 }

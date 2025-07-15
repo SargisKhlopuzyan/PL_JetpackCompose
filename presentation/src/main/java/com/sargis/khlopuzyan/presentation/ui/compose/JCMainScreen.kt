@@ -89,6 +89,12 @@ fun JetpackComposeMainScreen(
                     navController.navigate(ComposeScreen.KotlinHotFlowsVsColdFlowsScreen.route)
                 }
             }
+
+            item {
+                LazyGridItem("Coroutine cancellation & exception handling") {
+                    navController.navigate(ComposeScreen.CoroutineCancellationAndExceptionHandlingScreen.route)
+                }
+            }
         }
     }
 }

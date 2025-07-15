@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import com.sargis.khlopuzyan.presentation.ui.compose.JetpackComposeMainScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.colorBoxScreen.ColorBoxScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.composeStateTest.ComposeStateTestScreen
+import com.sargis.khlopuzyan.presentation.ui.compose.coroutineCancellationAndExceptionHandling.CoroutineCancellationAndExceptionHandlingScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.EffectHandlersScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlows.KotlinHotFlowsScreen
@@ -64,6 +65,11 @@ fun NavGraphBuilder.composeTestScreen(navController: NavController) {
             route = ComposeScreen.KotlinHotFlowsVsColdFlowsScreen.route
         ) {
             KotlinHotFlowsVsColdFlowsScreen(navController)
+        }
+        composable(
+            route = ComposeScreen.CoroutineCancellationAndExceptionHandlingScreen.route
+        ) {
+            CoroutineCancellationAndExceptionHandlingScreen()
         }
     }
 }

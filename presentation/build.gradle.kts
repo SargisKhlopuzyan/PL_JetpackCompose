@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-parcelize")
     // This is for passing data between destinations by navigation Component
 //    alias(libs.plugins.safe.args) apply false
 }

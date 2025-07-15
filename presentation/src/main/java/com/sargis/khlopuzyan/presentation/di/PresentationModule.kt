@@ -1,6 +1,8 @@
 package com.sargis.khlopuzyan.presentation.di
 
 import com.sargis.khlopuzyan.presentation.ui.compose.composeStateTest.ComposeStateTestScreenViewModel
+import com.sargis.khlopuzyan.presentation.ui.compose.coroutineCancellationAndExceptionHandling.CoroutineCancellationAndExceptionHandlingScreen
+import com.sargis.khlopuzyan.presentation.ui.compose.coroutineCancellationAndExceptionHandling.CoroutineCancellationAndExceptionHandlingViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.LaunchedEffectViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsViewModel
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlows.KotlinHotFlowsViewModel
@@ -40,6 +42,9 @@ private val viewModelModule = module {
     }
     viewModel {
         KotlinHotFlowsVsColdFlowsViewModel(get())
+    }
+    viewModel {
+        CoroutineCancellationAndExceptionHandlingViewModel(get())
     }
 }
 
