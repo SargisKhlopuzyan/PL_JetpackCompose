@@ -12,6 +12,7 @@ import com.sargis.khlopuzyan.presentation.ui.compose.effectHandlers.EffectHandle
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinFlows.KotlinFlowsScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlows.KotlinHotFlowsScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.kotlinHotFlowsVsColdFlows.KotlinHotFlowsVsColdFlowsScreen
+import com.sargis.khlopuzyan.presentation.ui.compose.performanceOptimizationWithStableAndImmutableScreen.PerformanceOptimizationWithStableAndImmutableScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.stylingText.StylingTextScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.textfieldsButtonsSnackbars.TextfieldsButtonsSnackbarsScreen
 import com.sargis.khlopuzyan.presentation.ui.main.navigation.MainScreen
@@ -70,6 +71,11 @@ fun NavGraphBuilder.composeTestScreen(navController: NavController) {
             route = ComposeScreen.CoroutineCancellationAndExceptionHandlingScreen.route
         ) {
             CoroutineCancellationAndExceptionHandlingScreen()
+        }
+        composable(
+            route = ComposeScreen.PerformanceOptimizationWithStableAndImmutable.route
+        ) {
+            PerformanceOptimizationWithStableAndImmutableScreen()
         }
     }
 }

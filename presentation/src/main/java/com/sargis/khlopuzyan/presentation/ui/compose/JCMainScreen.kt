@@ -95,6 +95,11 @@ fun JetpackComposeMainScreen(
                     navController.navigate(ComposeScreen.CoroutineCancellationAndExceptionHandlingScreen.route)
                 }
             }
+            item {
+                LazyGridItem("Performance Optimization with @Stable and @Immutable") {
+                    navController.navigate(ComposeScreen.PerformanceOptimizationWithStableAndImmutable.route)
+                }
+            }
         }
     }
 }
