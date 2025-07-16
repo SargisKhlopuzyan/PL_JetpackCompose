@@ -100,6 +100,11 @@ fun JetpackComposeMainScreen(
                     navController.navigate(ComposeScreen.PerformanceOptimizationWithStableAndImmutable.route)
                 }
             }
+            item {
+                LazyGridItem("derivedStateOf VS. remember(key)") {
+                    navController.navigate(ComposeScreen.DerivedStateOfVsRememberKeyScreen.route)
+                }
+            }
         }
     }
 }

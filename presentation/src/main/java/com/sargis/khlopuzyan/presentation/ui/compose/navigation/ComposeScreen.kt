@@ -12,4 +12,5 @@ sealed class ComposeScreen(val route: String) {
     object KotlinHotFlowsVsColdFlowsScreen : ComposeScreen("kotlin_hot_flows_vs_cold_flows_screen")
     object CoroutineCancellationAndExceptionHandlingScreen : ComposeScreen("coroutine_cancellation_and_exception_handling_screen")
     object PerformanceOptimizationWithStableAndImmutable : ComposeScreen("performance_optimization_with_stable_and_immutable")
+    object DerivedStateOfVsRememberKeyScreen : ComposeScreen("derived_state_of_vs_remember_key_screen")
 }
