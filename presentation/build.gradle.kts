@@ -79,6 +79,7 @@ dependencies {
     // Serialization
 //    implementation(libs.kotlinx.serialization.json)
 
+    implementation(libs.androidx.biometric)
 
     // Injection Koin
     implementation(libs.koin.android)

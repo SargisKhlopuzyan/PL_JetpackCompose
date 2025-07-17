@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.sargis.khlopuzyan.presentation.ui.biometric.BiometricScreen
 import com.sargis.khlopuzyan.presentation.ui.bottomNavigation.BtmNavMainScreen
 import com.sargis.khlopuzyan.presentation.ui.compose.navigation.composeTestScreen
 import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
@@ -53,6 +54,10 @@ fun MainNavigation() {
 
         composable(route = MainScreen.PullToRefreshLazyColumnScreen.route) {
             PullToRefreshLazyColumnScreen()
+        }
+
+        composable(route = MainScreen.BiometricScreen.route) {
+            BiometricScreen()
         }
 
     }
