@@ -10,6 +10,7 @@ import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
 import com.sargis.khlopuzyan.presentation.ui.main.lazy_grid.LazyGridScreen
 import com.sargis.khlopuzyan.presentation.ui.messageQueue.MessageQueueScreen
 import com.sargis.khlopuzyan.presentation.ui.profile.navigation.profileGraph
+import com.sargis.khlopuzyan.presentation.ui.pullToRefreshLazyColumn.PullToRefreshLazyColumnScreen
 import com.sargis.khlopuzyan.presentation.ui.sharedViewModel.navigation.SharedNavigation
 import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.shoppingListGraph
 import com.sargis.khlopuzyan.presentation.ui.supportMultiScreenSizes.navigation.supportMultiScreenSizesGraph
@@ -49,6 +50,10 @@ fun MainNavigation() {
         }
 
         composeTestScreen(navController)
+
+        composable(route = MainScreen.PullToRefreshLazyColumnScreen.route) {
+            PullToRefreshLazyColumnScreen()
+        }
 
     }
 }

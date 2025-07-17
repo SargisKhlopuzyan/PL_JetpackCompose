@@ -12,6 +12,7 @@ sealed class MainScreen(val route: String) {
     object SharedViewModelScreen : MainScreen("sharedView_model_screen")
     object MessageQueue : MainScreen("message_queue")
     object ComposeScreen : MainScreen("compose_screen")
+    object PullToRefreshLazyColumnScreen : MainScreen("pull_to_refresh_lazy_column_screen")
 }
 
 fun getMainScreens() = listOf<MainScreen>(
@@ -26,4 +27,5 @@ fun getMainScreens() = listOf<MainScreen>(
     MainScreen.SharedViewModelScreen,
     MainScreen.MessageQueue,
     MainScreen.ComposeScreen,
+    MainScreen.PullToRefreshLazyColumnScreen,
 )
