@@ -10,6 +10,7 @@ import com.sargis.khlopuzyan.presentation.ui.compose.navigation.composeTestScree
 import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
 import com.sargis.khlopuzyan.presentation.ui.main.lazy_grid.LazyGridScreen
 import com.sargis.khlopuzyan.presentation.ui.messageQueue.MessageQueueScreen
+import com.sargis.khlopuzyan.presentation.ui.multipleBackStacksScreen.MultipleBackStacksScreen
 import com.sargis.khlopuzyan.presentation.ui.profile.navigation.profileGraph
 import com.sargis.khlopuzyan.presentation.ui.pullToRefreshLazyColumn.PullToRefreshLazyColumnScreen
 import com.sargis.khlopuzyan.presentation.ui.sharedViewModel.navigation.SharedNavigation
@@ -58,6 +59,10 @@ fun MainNavigation() {
 
         composable(route = MainScreen.BiometricScreen.route) {
             BiometricScreen()
+        }
+
+        composable(route = MainScreen.MultipleBackStacksScreen.route) {
+            MultipleBackStacksScreen(/*navController*/)
         }
 
     }
