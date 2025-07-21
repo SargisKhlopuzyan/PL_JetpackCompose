@@ -33,11 +33,13 @@ private fun main() {
     val applyResult: AnyClass? = anyClass?.apply {
         println("apply -> this: $this")
         this.applyVar = Scopes.APPLY
+        17
     }
 
     val alsoResult: AnyClass? = anyClass?.also {
         println("also -> it: $it")
         it.alsoVar = Scopes.ALSO
+        17
     }
 
     println("anyClass: $anyClass")

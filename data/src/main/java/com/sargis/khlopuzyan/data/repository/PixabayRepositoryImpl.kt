@@ -13,7 +13,7 @@ class PixabayRepositoryImpl(
 ) : PixabayRepository {
     override suspend fun searchImagesByQuery(query: String): Result<PixabayDataModel> {
         return try {
-            val pixabayDataModel = pixabayApi.getSearchLocationByQuery(
+            val pixabayDataModel = pixabayApi.getImagesByQuery(
                 query,
                 BuildConfig.PIXABAY_API_KEY
             ).toPixabayDataModel()

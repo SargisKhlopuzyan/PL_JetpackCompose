@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface PixabayApi {
     @GET("api/")
-    suspend fun getSearchLocationByQuery(
+    suspend fun getImagesByQuery(
         @Query("q") query: String,
         @Query("key") accessKey: String,
         @Query("image_type") imageType: String = "photo",
