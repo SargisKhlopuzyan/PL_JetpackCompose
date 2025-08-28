@@ -1,6 +1,8 @@
 package com.sargis.khlopuzyan.presentation.ui.main.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -11,6 +13,8 @@ import com.sargis.khlopuzyan.presentation.ui.deeplink.DeeplinkNavigation
 import com.sargis.khlopuzyan.presentation.ui.main.lazy_grid.LazyGridScreen
 import com.sargis.khlopuzyan.presentation.ui.messageQueue.MessageQueueScreen
 import com.sargis.khlopuzyan.presentation.ui.multipleBackStacksScreen.MultipleBackStacksScreen
+import com.sargis.khlopuzyan.presentation.ui.pl.performanceOptimizationsForJetpackComposeUi.PerformanceOptimizationsForJetpackComposeUi
+import com.sargis.khlopuzyan.presentation.ui.pl.performanceOptimizationsForJetpackComposeUi.PerformanceOptimizationsForJetpackComposeUiViewModel
 import com.sargis.khlopuzyan.presentation.ui.profile.navigation.profileGraph
 import com.sargis.khlopuzyan.presentation.ui.pullToRefreshLazyColumn.PullToRefreshLazyColumnScreen
 import com.sargis.khlopuzyan.presentation.ui.sharedViewModel.navigation.SharedNavigation
@@ -18,6 +22,7 @@ import com.sargis.khlopuzyan.presentation.ui.shoppingList.navigation.shoppingLis
 import com.sargis.khlopuzyan.presentation.ui.supportMultiScreenSizes.navigation.supportMultiScreenSizesGraph
 import com.sargis.khlopuzyan.presentation.ui.swipeableTabRows.SwipeableTabRowsScreen
 import com.sargis.khlopuzyan.presentation.ui.uris.UriScreen
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun MainNavigation() {
@@ -65,5 +70,12 @@ fun MainNavigation() {
             MultipleBackStacksScreen(/*navController*/)
         }
 
+        composable(route = MainScreen.PerformanceOptimizationsForJetpackComposeUi.route) {
+            val viewModel: PerformanceOptimizationsForJetpackComposeUiViewModel = koinViewModel()
+            val color by viewModel.color.collectAsStateWithLifecycle()
+            PerformanceOptimizationsForJetpackComposeUi(color, onColorClick = {
+                viewModel.setColor(it)
+            })
+        }
     }
 }

@@ -15,6 +15,8 @@ sealed class MainScreen(val route: String) {
     object PullToRefreshLazyColumnScreen : MainScreen("pull_to_refresh_lazy_column_screen")
     object BiometricScreen : MainScreen("biometric_screen")
     object MultipleBackStacksScreen : MainScreen("multiple_back_stacks_screen")
+    object PerformanceOptimizationsForJetpackComposeUi :
+        MainScreen("performance_optimizations_for_jetpack_compose_ui")
 }
 
 fun getMainScreens() = listOf<MainScreen>(
@@ -32,4 +34,5 @@ fun getMainScreens() = listOf<MainScreen>(
     MainScreen.PullToRefreshLazyColumnScreen,
     MainScreen.BiometricScreen,
     MainScreen.MultipleBackStacksScreen,
+    MainScreen.PerformanceOptimizationsForJetpackComposeUi,
 )
